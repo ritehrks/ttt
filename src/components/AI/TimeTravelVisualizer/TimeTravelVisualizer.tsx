@@ -23,7 +23,7 @@ export const TimeTravelVisualizer: React.FC = () => {
   const [timePoints, setTimePoints] = useState<TimePoint[]>([]);
   const [currentTimeIndex, setCurrentTimeIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [playSpeed, setPlaySpeed] = useState(1);
+  const [playSpeed] = useState(1);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {

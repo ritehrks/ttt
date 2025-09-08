@@ -10,7 +10,7 @@ import {
   Notifications, Settings, Menu as MenuIcon, SmartToy as AI, Timeline,
   HealthAndSafety, DataUsage, Emergency
 } from '@mui/icons-material';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { RootState } from '../../store/store';
 import { AIService } from '../../services/aiService';
 
