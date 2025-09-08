@@ -17,7 +17,6 @@ import { DataQualityChecker } from './components/AI/DataQualityChecker/DataQuali
 import { EmergencyAlertEngine } from './components/AI/EmergencyAlertEngine/EmergencyAlertEngine';
 import { TimeTravelVisualizer } from './components/AI/TimeTravelVisualizer/TimeTravelVisualizer';
 
-// Define our custom application theme
 const theme = createTheme({
   palette: {
     primary: { main: '#1976d2' },
@@ -27,18 +26,12 @@ const theme = createTheme({
 
 const App: React.FC = () => {
   return (
-    // Provide the Redux store to the entire app
     <Provider store={store}>
-      {/* Persist and rehydrate the store on refresh */}
       <PersistGate loading={null} persistor={persistor}>
-        {/* Provide the MUI theme to the entire app */}
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          {/* Handle all routing and navigation */}
           <Router>
-            {/* Use our main layout to wrap all pages */}
             <MainLayout>
-              {/* Define all the application's pages/routes */}
               <Routes>
                 <Route path="/" element={<Navigate to="/dashboard" replace />} />
                 <Route path="/dashboard" element={<MainDashboard />} />
@@ -47,6 +40,15 @@ const App: React.FC = () => {
                 <Route path="/data-quality" element={<DataQualityChecker />} />
                 <Route path="/alerts" element={<EmergencyAlertEngine />} />
                 <Route path="/time-travel" element={<TimeTravelVisualizer />} />
+
+                {/* Placeholder Routes for unimplemented pages */}
+                <Route path="/map" element={<div>Interactive Map Page - Coming Soon</div>} />
+                <Route path="/calculator" element={<div>HMPI Calculator Page - Coming Soon</div>} />
+                <Route path="/analytics" element={<div>Analytics Page - Coming Soon</div>} />
+                <Route path="/ai-center" element={<div>AI Control Center - Coming Soon</div>} />
+                <Route path="/citizen-reports" element={<div>Citizen Reports Page - Coming Soon</div>} />
+                <Route path="/settings" element={<div>Settings Page - Coming Soon</div>} />
+
               </Routes>
             </MainLayout>
           </Router>
