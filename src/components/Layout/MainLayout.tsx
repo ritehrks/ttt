@@ -50,12 +50,13 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   ];
 
   const aiNavigationItems = [
-    { text: 'AI Control Center', icon: <AI />, path: '/ai-center', aiFeature: true },
-    { text: 'Smart Source Detection', icon: <DataUsage />, path: '/source-detection', aiFeature: true },
+    { text: 'Risk Assessment', icon: <AI />, path: '/ai-center', aiFeature: true },
+    { text: 'Anomaly Detector', icon: <DataUsage />, path: '/source-detection', aiFeature: true },
     { text: 'Health Risk Predictor', icon: <HealthAndSafety />, path: '/health-predictions', aiFeature: true },
-    { text: 'Time-Travel Analysis', icon: <Timeline />, path: '/time-travel', aiFeature: true },
-    { text: 'Emergency Alerts', icon: <Emergency />, path: '/alerts', aiFeature: true },
+    { text: 'Agriculture Health Predictor', icon: <Timeline />, path: '/time-travel', aiFeature: true },
+    { text: 'Alerts System', icon: <Emergency />, path: '/alerts', aiFeature: true },
     { text: 'Citizen Reports', icon: <ReportProblem />, path: '/citizen-reports', aiFeature: true },
+    { text: 'Trend Analysis', icon: <ReportProblem />, path: '/citizen-reports', aiFeature: true },
   ];
   
   const settingsNavigationItems = [
