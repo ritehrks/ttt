@@ -39,10 +39,10 @@ const App: React.FC = () => {
                 <Route path="/health-predictions" element={<PredictiveHealthAssessment />} />
                 <Route path="/data-quality" element={<DataQualityChecker />} />
                 <Route path="/alerts" element={<EmergencyAlertEngine />} />
+                <Route path="/time-travel" element={<TimeTravelVisualizer />} />
                 
 
                 {/* Placeholder Routes for unimplemented pages */}
-                <Route path="/time-travel" element={<div>Coming Soon</div>} />
                 <Route path="/map" element={<div>Coming Soon</div>} />
                 <Route path="/calculator" element={<div>Coming Soon</div>} />
                 <Route path="/analytics" element={<div>Coming Soon</div>} />
