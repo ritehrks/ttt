@@ -56,7 +56,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     { text: 'Agriculture Health Predictor', icon: <Timeline />, path: '/time-travel', aiFeature: true },
     { text: 'Alerts System', icon: <Emergency />, path: '/alerts', aiFeature: true },
     { text: 'Citizen Reports', icon: <ReportProblem />, path: '/citizen-reports', aiFeature: true },
-    { text: 'Trend Analysis', icon: <ReportProblem />, path: '/citizen-reports', aiFeature: true },
+    { text: 'Trend Analysis', icon: <Timeline />, path: '/time-travel', aiFeature: true },
   ];
   
   const settingsNavigationItems = [
