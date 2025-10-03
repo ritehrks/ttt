@@ -79,8 +79,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const drawer = (
     <div>
       <Toolbar>
-        <Typography variant="h6" noWrap component="div">
-          HMPI Monitor AI
+        <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 'bold', fontSize: '2rem' }}>
+          SWASTH
         </Typography>
       </Toolbar>
       <Divider />
@@ -166,7 +166,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-            Heavy Metal Pollution Index Monitoring System
+            SWASTH (Smart Water Assessment for Surveillance, Tracking & Health)
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={alertCount} color="error">
