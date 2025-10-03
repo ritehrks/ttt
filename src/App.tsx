@@ -40,14 +40,15 @@ const App: React.FC = () => {
                 <Route path="/data-quality" element={<DataQualityChecker />} />
                 <Route path="/alerts" element={<EmergencyAlertEngine />} />
                 <Route path="/time-travel" element={<TimeTravelVisualizer />} />
+                
 
                 {/* Placeholder Routes for unimplemented pages */}
-                <Route path="/map" element={<div>Interactive Map Page - Coming Soon</div>} />
-                <Route path="/calculator" element={<div>HMPI Calculator Page - Coming Soon</div>} />
-                <Route path="/analytics" element={<div>Analytics Page - Coming Soon</div>} />
-                <Route path="/ai-center" element={<div>AI Control Center - Coming Soon</div>} />
-                <Route path="/citizen-reports" element={<div>Citizen Reports Page - Coming Soon</div>} />
-                <Route path="/settings" element={<div>Settings Page - Coming Soon</div>} />
+                <Route path="/map" element={<div>Coming Soon</div>} />
+                <Route path="/calculator" element={<div>Coming Soon</div>} />
+                <Route path="/analytics" element={<div>Coming Soon</div>} />
+                <Route path="/ai-center" element={<div>Coming Soon</div>} />
+                <Route path="/citizen-reports" element={<div>Coming Soon</div>} />
+                <Route path="/settings" element={<div>Coming Soon</div>} />
 
               </Routes>
             </MainLayout>
