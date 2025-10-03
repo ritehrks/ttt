@@ -3,16 +3,17 @@ import { NavLink } from 'react-router-dom';
 import {
   Box, Drawer, AppBar, Toolbar, List, Typography, Divider,
   ListItem, ListItemIcon, ListItemText, CssBaseline, Badge,
-  IconButton, Switch, FormControlLabel, ListItemButton
+  IconButton, Switch, FormControlLabel, ListItemButton, Menu, MenuItem
 } from '@mui/material';
 import {
   Dashboard, Map as MapIcon, Calculate, Analytics, ReportProblem,
   Notifications, Settings, Menu as MenuIcon, SmartToy as AI, Timeline,
-  HealthAndSafety, DataUsage, Emergency
+  HealthAndSafety, DataUsage, Emergency, Language
 } from '@mui/icons-material';
-import { useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { AIService } from '../../services/aiService';
+import { useTranslation } from 'react-i18next';
 
 const drawerWidth = 280;
 
@@ -24,7 +25,19 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [aiEnabled, setAiEnabled] = useState(true);
 
-  // Get the single instance of our AI Service from Step 3
+  // Language menu state
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const { i18n } = useTranslation<any>();
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  // Get the single instance of our AI Service
   const aiService = AIService.getInstance();
 
   // Hook into the Redux store to get the number of active alerts
@@ -41,7 +54,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     setMobileOpen(!mobileOpen);
   };
 
-  // An array of objects defining our navigation links
+  // Navigation items
   const navigationItems = [
     { text: 'Dashboard', icon: <Dashboard />, path: '/dashboard', aiFeature: false },
     { text: 'Interactive Map', icon: <MapIcon />, path: '/map', aiFeature: false },
@@ -50,20 +63,20 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   ];
 
   const aiNavigationItems = [
-    { text: 'AI Control Center', icon: <AI />, path: '/ai-center', aiFeature: true },
-    { text: 'Smart Source Detection', icon: <DataUsage />, path: '/source-detection', aiFeature: true },
+    { text: 'Risk Assessment', icon: <AI />, path: '/ai-center', aiFeature: true },
+    { text: 'Anomaly Detector', icon: <DataUsage />, path: '/source-detection', aiFeature: true },
     { text: 'Health Risk Predictor', icon: <HealthAndSafety />, path: '/health-predictions', aiFeature: true },
-    { text: 'Time-Travel Analysis', icon: <Timeline />, path: '/time-travel', aiFeature: true },
-    { text: 'Emergency Alerts', icon: <Emergency />, path: '/alerts', aiFeature: true },
+    { text: 'Agriculture Health Predictor', icon: <Timeline />, path: '/time-travel', aiFeature: true },
+    { text: 'Alerts System', icon: <Emergency />, path: '/alerts', aiFeature: true },
     { text: 'Citizen Reports', icon: <ReportProblem />, path: '/citizen-reports', aiFeature: true },
+    { text: 'Trend Analysis', icon: <ReportProblem />, path: '/citizen-reports', aiFeature: true },
   ];
-  
+
   const settingsNavigationItems = [
     { text: 'Settings', icon: <Settings />, path: '/settings', aiFeature: false },
   ];
 
-
-  // This variable holds the JSX for the entire sidebar content
+  // Sidebar drawer
   const drawer = (
     <div>
       <Toolbar>
@@ -109,22 +122,18 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               }}
             >
               <ListItemIcon sx={{ color: 'primary.main' }}>
-                {item.text === 'Emergency Alerts' ? (
-                  <Badge badgeContent={alertCount} color="error">{item.icon}</Badge>
-                ) : (
-                  item.icon
-                )}
+                {item.icon}
               </ListItemIcon>
-              <ListItemText 
-                primary={item.text} 
-                primaryTypographyProps={{ fontWeight: 600, color: 'primary.main' }} 
+              <ListItemText
+                primary={item.text}
+                primaryTypographyProps={{ fontWeight: 600, color: 'primary.main' }}
               />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
-       <List>
+      <List>
         {settingsNavigationItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton component={NavLink} to={item.path}>
@@ -165,6 +174,18 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <Notifications />
             </Badge>
           </IconButton>
+          <IconButton sx={{ ml: 1, color: '#fff' }} onClick={handleMenuOpen}>
+            <Language />
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleMenuClose}
+          >
+            <MenuItem onClick={() => { i18n.changeLanguage('en'); handleMenuClose(); }}>English</MenuItem>
+            <MenuItem onClick={() => { i18n.changeLanguage('hi'); handleMenuClose(); }}>हिन्दी</MenuItem>
+            <MenuItem onClick={() => { i18n.changeLanguage('gu'); handleMenuClose(); }}>ગુજરાતી</MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
       <Box
