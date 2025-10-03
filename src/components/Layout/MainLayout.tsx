@@ -15,6 +15,8 @@ import { RootState } from '../../store/store';
 import { AIService } from '../../services/aiService';
 import { useTranslation } from 'react-i18next';
 
+import { DataUploader } from '../DataUploader/DataUploader';
+
 const drawerWidth = 280;
 
 interface MainLayoutProps {
@@ -153,6 +155,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          background: 'linear-gradient(45deg, #1976d2 30%, #2196f3 90%)',
+          boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
         }}
       >
         <Toolbar>
@@ -223,6 +227,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         <Toolbar />
         {children}
       </Box>
+      <DataUploader />
     </Box>
   );
 };
