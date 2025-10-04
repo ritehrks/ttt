@@ -22,7 +22,16 @@ const theme = createTheme({
     primary: { main: '#1976d2' },
     secondary: { main: '#00796b' },
     background: {
-      default: '#f4f6f8'
+      default: 'transparent'
+    }
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: 'transparent',
+        },
+      },
     },
   },
 });
