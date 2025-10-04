@@ -155,8 +155,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          background: 'linear-gradient(45deg, #1976d2 30%, #2196f3 90%)',
-          boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
+          background: 'linear-gradient(45deg, #0a4783ff 30%, #06599dff 90%)',
+          boxShadow: '0 3px 5px 2px rgba(19, 69, 80, 0.3)',
         }}
       >
         <Toolbar>
@@ -225,7 +225,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         sx={{
           flexGrow: 1,
           p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { xs: '100%', sm: `calc(100% - ${drawerWidth}px)` },
           backgroundColor: 'transparent', // <-- ADD THIS LINE
         }}
       >

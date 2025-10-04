@@ -16,10 +16,11 @@ import { PredictiveHealthAssessment } from './components/AI/PredictiveHealthAsse
 import { DataQualityChecker } from './components/AI/DataQualityChecker/DataQualityChecker';
 import { EmergencyAlertEngine } from './components/AI/EmergencyAlertEngine/EmergencyAlertEngine';
 import { TimeTravelVisualizer } from './components/AI/TimeTravelVisualizer/TimeTravelVisualizer';
+import { HMPICalculator } from './components/HMPICalculator/HMPICalculator';
 
 const theme = createTheme({
   palette: {
-    primary: { main: '#1976d2' },
+    primary: { main: '#0a4783ff' },
     secondary: { main: '#00796b' },
     background: {
       default: 'transparent'
@@ -47,6 +48,7 @@ const App: React.FC = () => {
               <Routes>
                 <Route path="/" element={<Navigate to="/dashboard" replace />} />
                 <Route path="/dashboard" element={<MainDashboard />} />
+                <Route path="/calculator" element={<HMPICalculator />} />
                 <Route path="/source-detection" element={<SmartContaminationDetector />} />
                 <Route path="/health-predictions" element={<PredictiveHealthAssessment />} />
                 <Route path="/data-quality" element={<DataQualityChecker />} />
